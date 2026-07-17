@@ -118,8 +118,6 @@ body{
 .task-status{flex-shrink:0;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:1.5px;padding:5px 13px;border-radius:20px;white-space:nowrap;border:1px solid}
 .status-notstarted{color:var(--notstarted);background:var(--notstarted-dim);border-color:rgba(245,166,35,.35)}
 .status-done{color:var(--done);background:var(--done-dim);border-color:rgba(34,197,94,.35)}
-.task-status.is-clickable{cursor:pointer}
-.task-status.is-clickable:hover{filter:brightness(1.2)}
 
 /* route diagram */
 .route{display:flex;align-items:center;gap:0;margin-top:16px;margin-left:26px}
@@ -153,8 +151,7 @@ body{
 .port-addr.port-dst{color:var(--text-faint)}
 .port-port{color:inherit;opacity:.8}
 .port-arrow{color:var(--text-faint);font-size:9px}
-.port-status{flex-shrink:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;padding:5px 11px;border-radius:20px;border:1px solid rgba(245,166,35,.35);color:var(--notstarted);background:var(--notstarted-dim);cursor:pointer;transition:filter .15s}
-.port-status:hover{filter:brightness(1.2)}
+.port-status{flex-shrink:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:1px;padding:5px 11px;border-radius:20px;border:1px solid rgba(245,166,35,.35);color:var(--notstarted);background:var(--notstarted-dim)}
 .port-status.pst-done{color:var(--done);background:var(--done-dim);border-color:rgba(34,197,94,.35)}
 
 .task-progress{display:flex;align-items:center;gap:10px;margin-top:14px;margin-left:26px;flex-wrap:wrap}
@@ -300,7 +297,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
 
   <div class="tasks">
 
-    <div class="task" data-mode="atomic" data-id="vpn">
+    <div class="task" data-mode="atomic" data-id="vpn" data-status="notstarted">
       <div class="task-top">
         <div class="task-heading">
           <span class="task-num">01</span>
@@ -309,7 +306,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             <div class="task-desc">Atualizar o endereço configurado na VPN SSL para o novo IP</div>
           </div>
         </div>
-        <span class="task-status status-notstarted is-clickable">Não iniciado</span>
+        <span class="task-status status-notstarted">Não iniciado</span>
       </div>
       <div class="route">
         <span class="ip-node old">200.218.225.74</span>
@@ -318,7 +315,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
       </div>
     </div>
 
-    <div class="task" data-mode="atomic" data-id="dns">
+    <div class="task" data-mode="atomic" data-id="dns" data-status="notstarted">
       <div class="task-top">
         <div class="task-heading">
           <span class="task-num">02</span>
@@ -327,7 +324,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             <div class="task-desc">Atualizar o registro DNS apontado para o antigo endereço</div>
           </div>
         </div>
-        <span class="task-status status-notstarted is-clickable">Não iniciado</span>
+        <span class="task-status status-notstarted">Não iniciado</span>
       </div>
       <div class="route">
         <span class="ip-node old">200.218.225.74</span>
@@ -336,7 +333,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
       </div>
     </div>
 
-    <div class="task" data-mode="grouped" data-id="t74">
+    <div class="task" data-mode="grouped" data-id="t74" data-status="notstarted">
       <div class="task-top">
         <div class="task-heading">
           <span class="task-num">03</span>
@@ -355,7 +352,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
       <details class="ports" open>
         <summary>Regras de-para <b>(18)</b></summary>
         <div class="port-list">
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -372,7 +369,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -389,7 +386,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -406,7 +403,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -423,7 +420,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -440,7 +437,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -457,7 +454,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -474,7 +471,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -491,7 +488,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -508,7 +505,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -525,7 +522,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -542,7 +539,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -559,7 +556,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -576,7 +573,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -593,7 +590,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -610,7 +607,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -627,7 +624,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -644,7 +641,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -669,7 +666,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
       </div>
     </div>
 
-    <div class="task" data-mode="grouped" data-id="t21">
+    <div class="task" data-mode="grouped" data-id="t21" data-status="notstarted">
       <div class="task-top">
         <div class="task-heading">
           <span class="task-num">04</span>
@@ -688,7 +685,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
       <details class="ports" open>
         <summary>Regras de-para <b>(18)</b></summary>
         <div class="port-list">
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -705,7 +702,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -722,7 +719,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -739,7 +736,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -756,7 +753,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -773,7 +770,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -790,7 +787,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -807,7 +804,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -824,7 +821,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -841,7 +838,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -858,7 +855,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -875,7 +872,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -892,7 +889,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -909,7 +906,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -926,7 +923,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -943,7 +940,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -960,7 +957,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -977,7 +974,7 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
             </div>
             <button class="port-status" type="button">Não iniciado</button>
           </div>
-          <div class="port-item">
+          <div class="port-item" data-status="notstarted">
             <div class="port-lines">
               <div class="port-line">
                 <span class="port-tag tag-de">DE</span>
@@ -1060,38 +1057,9 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
 
 <script>
 (function(){
-  // troca automática: "Não iniciado" (amarelo) até 18/07/2026 10:00 (BRT), depois "Andamento" (verde)
-  var deadline = new Date('2026-07-18T10:00:00-03:00');
-  var tbStatus = document.getElementById('tbStatus');
-  var tbDot = document.getElementById('tbDot');
-  var tbStatusText = document.getElementById('tbStatusText');
-  if(tbStatus && tbStatusText){
-    if(new Date() >= deadline){
-      tbStatus.classList.add('is-active');
-      if(tbDot) tbDot.classList.add('is-active');
-      tbStatusText.textContent = 'Andamento';
-    } else {
-      tbStatusText.textContent = 'Não iniciado';
-    }
-  }
-})();
-
-(function(){
-  const STATES = ['notstarted','done'];
   const LABELS = {notstarted:'Não iniciado', done:'Concluído'};
   const VALUES = {notstarted:0, done:1};
-  const STORE_PREFIX = 'gmud20260020_';
 
-  function loadState(id){
-    try { return localStorage.getItem(STORE_PREFIX + id) || 'notstarted'; }
-    catch(e){ return 'notstarted'; }
-  }
-  function saveState(id, val){
-    try { localStorage.setItem(STORE_PREFIX + id, val); } catch(e){}
-  }
-  function nextState(cur){
-    return STATES[(STATES.indexOf(cur) + 1) % STATES.length];
-  }
   function paintBadge(el, st){
     el.classList.remove('status-notstarted','status-done');
     el.classList.add('status-' + st);
@@ -1108,17 +1076,10 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
   const registry = [];
 
   document.querySelectorAll('.task[data-mode="atomic"]').forEach(taskEl => {
-    const id = taskEl.dataset.id;
     const badge = taskEl.querySelector('.task-status');
-    let st = loadState(id);
+    const st = taskEl.dataset.status === 'done' ? 'done' : 'notstarted';
     paintBadge(badge, st); paintCard(taskEl, st);
-    badge.addEventListener('click', () => {
-      st = nextState(st);
-      saveState(id, st);
-      paintBadge(badge, st); paintCard(taskEl, st);
-      recompute();
-    });
-    registry.push({ items: [{ get state(){ return st; } }] });
+    registry.push({ items: [{ state: st }] });
   });
 
   document.querySelectorAll('.task[data-mode="grouped"]').forEach(taskEl => {
@@ -1128,32 +1089,22 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
     const fill = document.getElementById('prog-' + id);
     const countEl = document.getElementById('count-' + id);
 
-    const items = rows.map((row, idx) => {
-      const rowId = id + '-' + idx;
-      let st = loadState(rowId);
+    const items = rows.map(row => {
+      const st = row.dataset.status === 'done' ? 'done' : 'notstarted';
       const pill = row.querySelector('.port-status');
       paintPill(pill, st);
-      pill.addEventListener('click', () => {
-        st = nextState(st);
-        saveState(rowId, st);
-        paintPill(pill, st);
-        refreshGroup();
-      });
-      return { get state(){ return st; } };
+      return { state: st };
     });
 
-    function refreshGroup(){
-      const total = items.length;
-      const doneCount = items.filter(it => it.state === 'done').length;
-      const pct = total ? Math.round((doneCount / total) * 100) : 0;
-      const groupState = doneCount === total ? 'done' : 'notstarted';
-      paintBadge(badge, groupState);
-      paintCard(taskEl, groupState);
-      if(fill) fill.style.width = pct + '%';
-      if(countEl) countEl.textContent = doneCount + '/' + total + ' concluídas · ' + pct + '%';
-      recompute();
-    }
-    refreshGroup();
+    const total = items.length;
+    const doneCount = items.filter(it => it.state === 'done').length;
+    const pct = total ? Math.round((doneCount / total) * 100) : 0;
+    const groupState = doneCount === total ? 'done' : 'notstarted';
+    paintBadge(badge, groupState);
+    paintCard(taskEl, groupState);
+    if(fill) fill.style.width = pct + '%';
+    if(countEl) countEl.textContent = doneCount + '/' + total + ' concluídas · ' + pct + '%';
+
     registry.push({ items });
   });
 
