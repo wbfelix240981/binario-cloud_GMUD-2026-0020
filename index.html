@@ -1051,6 +1051,25 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
 
 <script>
 (function(){
+  // troca automática: "Não iniciado" (amarelo) até 18/07/2026 10:00 (BRT), depois "Andamento" (verde)
+  var deadline = new Date('2026-07-18T10:00:00-03:00');
+  var tbStatus = document.getElementById('tbStatus');
+  var tbDot = document.getElementById('tbDot');
+  var tbStatusText = document.getElementById('tbStatusText');
+  if(tbStatus && tbStatusText){
+    if(new Date() >= deadline){
+      tbStatus.classList.add('is-active');
+      if(tbDot) tbDot.classList.add('is-active');
+      tbStatusText.textContent = 'Andamento';
+    } else {
+      tbStatusText.textContent = 'Não iniciado';
+    }
+  }
+})();
+</script>
+
+<script>
+(function(){
   const LABELS = {notstarted:'Não iniciado', done:'Concluído'};
   const VALUES = {notstarted:0, done:1};
 
