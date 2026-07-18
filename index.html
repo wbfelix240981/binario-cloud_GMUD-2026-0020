@@ -1023,7 +1023,6 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
 <script>
 (function(){
   var CREDS = { "bmc": "gmud0020" };
-  var STORE_KEY = "gmud20260020_auth";
   var overlay = document.getElementById("lgOverlay");
   var gate = document.getElementById("appGate");
 
@@ -1032,17 +1031,12 @@ footer{border-top:1px solid var(--border-soft);padding:22px 0 40px;display:flex;
     gate.style.display = "block";
   }
 
-  try {
-    if(localStorage.getItem(STORE_KEY) === "ok"){ unlock(); }
-  } catch(e){}
-
   function tryLogin(){
     var u = document.getElementById("lgUser").value.trim();
     var p = document.getElementById("lgPass").value;
     var err = document.getElementById("lgErr");
     if(CREDS[u] && CREDS[u] === p){
       err.classList.remove("show");
-      try { localStorage.setItem(STORE_KEY, "ok"); } catch(e){}
       unlock();
     } else {
       err.classList.add("show");
